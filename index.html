@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Book About Life — Aroosh</title>
+
+  <style>
+
+    /* =====================================================
+       FONT & COLORS
+       ===================================================== */
+
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+    :root {
+
+      --paper: #fffdf8;
+      --background: #f3eee4;
+
+      --ink: #302b25;
+      --soft-ink: #6c645a;
+
+      --yellow: #f4c95d;
+      --yellow-soft: #fff4cf;
+
+      --blue: #78abc4;
+      --blue-soft: #eaf5fa;
+
+      --green: #7eaa83;
+      --green-soft: #edf7ee;
+
+      --pink: #e5a2a8;
+      --pink-soft: #fff0f1;
+
+      --purple: #9b8bc4;
+      --purple-soft: #f3effb;
+
+      --orange: #e99a5b;
+      --orange-soft: #fff0e3;
+
+      --gold: #bd8731;
+
+      --border: #e9dfcd;
+
+      --shadow:
+        0 25px 70px rgba(65, 50, 30, 0.13),
+        0 5px 15px rgba(65, 50, 30, 0.06);
+    }
+
+
+    /* =====================================================
+       BASE
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 8% 5%,
+          #fff0b8 0,
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 92% 15%,
+          #dff2f9 0,
+          transparent 27%
+        ),
+        linear-gradient(
+          135deg,
+          #f6f1e7,
+          #ebe4d7
+        );
+
+      color: var(--ink);
+
+      /*
+        Nunito is deliberately used instead of a formal serif.
+        It is round, friendly and easy for a child to read.
+      */
+
+      font-family: "Nunito", Arial, sans-serif;
+
+      line-height: 1.75;
+
+      font-size: 18px;
+    }
+
+
+    /* =====================================================
+       TOOLBAR
+       ===================================================== */
+
+    .toolbar {
+
+      position: sticky;
+      top: 0;
+
+      z-index: 1000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 12px;
+
+      background:
+        rgba(255, 253, 248, 0.94);
+
+      backdrop-filter: blur(14px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .toolbar button {
+
+      border: 0;
+
+      border-radius: 50px;
+
+      padding: 11px 21px;
+
+      font-family: "Nunito", Arial, sans-serif;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .toolbar button:hover {
+
+      transform:
+        translateY(-2px);
+    }
+
+    .save {
+
+      background: #c28a35;
+
+      color: white;
+
+      box-shadow:
+        0 5px 15px
+        rgba(194, 138, 53, .25);
+    }
+
+    .print {
+
+      background: #527f97;
+
+      color: white;
+    }
+
+    .reset {
+
+      background: #ebe5db;
+
+      color: #655e55;
+    }
+
+
+    /* =====================================================
+       BOOK
+       ===================================================== */
+
+    .book {
+
+      width:
+        min(900px, calc(100% - 26px));
+
+      margin:
+        38px auto 70px;
+
+      background:
+        var(--paper);
+
+      border-radius:
+        20px;
+
+      overflow:
+        hidden;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    /* =====================================================
+       COVER
+       ===================================================== */
+
+    .cover {
+
+      min-height:
+        680px;
+
+      padding:
+        75px 55px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      text-align:
+        center;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 15%,
+          #fff0ad 0,
+          transparent 23%
+        ),
+
+        radial-gradient(
+          circle at 88% 20%,
+          #dff3fa 0,
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 80% 90%,
+          #ffe5e5 0,
+          transparent 25%
+        ),
+
+        linear-gradient(
+          145deg,
+          #fffaf0,
+          #f8eed9
+        );
+    }
+
+
+    /* decorative circles */
+
+    .cover::before {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        150px;
+
+      height:
+        150px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(244, 201, 93, .35);
+
+      left:
+        -50px;
+
+      top:
+        60px;
+    }
+
+    .cover::after {
+
+      content: "";
+
+      position:
+        absolute;
+
+      width:
+        180px;
+
+      height:
+        180px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(120, 171, 196, .25);
+
+      right:
+        -65px;
+
+      bottom:
+        50px;
+    }
+
+
+    .cover-star {
+
+      font-size:
+        54px;
+
+      margin-bottom:
+        17px;
+    }
+
+
+    .cover-small {
+
+      font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        #a5792c;
+
+      margin-bottom:
+        15px;
+    }
+
+
+    .cover h1 {
+
+      max-width:
+        680px;
+
+      margin:
+        0;
+
+      font-family:
+        "Baloo 2",
+        "Nunito",
+        sans-serif;
+
+      font-size:
+        clamp(48px, 9vw, 76px);
+
+      line-height:
+        .95;
+
+      font-weight:
+        700;
+
+      color:
+        #3d352b;
+    }
+
+
+    .cover-subtitle {
+
+      max-width:
+        600px;
+
+      margin-top:
+        27px;
+
+      font-size:
+        20px;
+
+      font-weight:
+        500;
+
+      line-height:
+        1.6;
+
+      color:
+        var(--soft-ink);
+    }
+
+
+    .cover-names {
+
+      margin-top:
+        48px;
+
+      font-size:
+        17px;
+
+      color:
+        #786e61;
+    }
+
+    .cover-names strong {
+
+      color:
+        #40372c;
+
+      font-weight:
+        800;
+    }
+
+
+    .cover-date {
+
+      margin-top:
+        30px;
+
+      font-size:
+        13px;
+
+      color:
+        #9a9185;
+    }
+
+
+    /* =====================================================
+       CONTENT
+       ===================================================== */
+
+    .content {
+
+      padding:
+        60px 78px 75px;
+    }
+
+
+    .chapter {
+
+      margin-bottom:
+        65px;
+    }
+
+
+    .chapter-label {
+
+      display:
+        inline-block;
+
+      padding:
+        6px 14px;
+
+      border-radius:
+        20px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        1.3px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        14px;
+    }
+
+
+    .yellow-label {
+
+      background:
+        var(--yellow-soft);
+
+      color:
+        #9b741f;
+    }
+
+    .green-label {
+
+      background:
+        var(--green-soft);
+
+      color:
+        #557b59;
+    }
+
+    .blue-label {
+
+      background:
+        var(--blue-soft);
+
+      color:
+        #4d7c94;
+    }
+
+    .purple-label {
+
+      background:
+        var(--purple-soft);
+
+      color:
+        #75669c;
+    }
+
+    .orange-label {
+
+      background:
+        var(--orange-soft);
+
+      color:
+        #a96736;
+    }
+
+    .pink-label {
+
+      background:
+        var(--pink-soft);
+
+      color:
+        #a35e67;
+    }
+
+
+    .chapter h2 {
+
+      margin:
+        0 0 16px;
+
+      font-family:
+        "Baloo 2",
+        "Nunito",
+        sans-serif;
+
+      font-size:
+        clamp(34px, 6vw, 48px);
+
+      line-height:
+        1.05;
+
+      font-weight:
+        700;
+
+      color:
+        #3d362d;
+    }
+
+
+    .chapter p {
+
+      margin:
+        0 0 19px;
+
+      font-size:
+        18px;
+
+      line-height:
+        1.8;
+    }
+
+
+    /* =====================================================
+       LIFE FORMULA
+       ===================================================== */
+
+    .formula-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        34px 25px;
+
+      text-align:
+        center;
+
+      border-radius:
+        22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff8dc,
+          #fff0c1
+        );
+
+      border:
+        1px solid #ecd69d;
+    }
+
+
+    .formula {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        clamp(48px, 10vw, 76px);
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      color:
+        #a87520;
+    }
+
+
+    .formula-text {
+
+      margin-top:
+        13px;
+
+      font-size:
+        17px;
+
+      font-weight:
+        600;
+
+      color:
+        #75694f;
+    }
+
+
+    .formula-languages {
+
+      margin-top:
+        18px;
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      flex-wrap:
+        wrap;
+    }
+
+
+    .language-pill {
+
+      padding:
+        7px 14px;
+
+      border-radius:
+        20px;
+
+      background:
+        rgba(255,255,255,.68);
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      color:
+        #6c6253;
+    }
+
+
+    /* =====================================================
+       SELF CARE
+       ===================================================== */
+
+    .care-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        30px;
+
+      background:
+        var(--green-soft);
+
+      border:
+        1px solid #d6e8d8;
+
+      border-radius:
+        22px;
+    }
+
+
+    .care-title {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        31px;
+
+      font-weight:
+        700;
+
+      color:
+        #527558;
+
+      margin-bottom:
+        18px;
+    }
+
+
+    .care-items {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        13px;
+    }
+
+
+    .care-item {
+
+      padding:
+        17px;
+
+      background:
+        rgba(255,255,255,.68);
+
+      border-radius:
+        15px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        600;
+    }
+
+
+    .care-item .emoji {
+
+      display:
+        block;
+
+      font-size:
+        27px;
+
+      margin-bottom:
+        5px;
+    }
+
+
+    /* =====================================================
+       SAFETY
+       ===================================================== */
+
+    .safety {
+
+      margin:
+        32px 0;
+
+      padding:
+        30px;
+
+      background:
+        var(--blue-soft);
+
+      border:
+        1px solid #d5e7ef;
+
+      border-radius:
+        22px;
+    }
+
+
+    .safety h3 {
+
+      margin:
+        0 0 18px;
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        31px;
+
+      font-weight:
+        700;
+
+      color:
+        #4c788f;
+    }
+
+
+    .safety-row {
+
+      display:
+        flex;
+
+      gap:
+        15px;
+
+      align-items:
+        flex-start;
+
+      margin:
+        15px 0;
+
+      padding:
+        16px;
+
+      background:
+        rgba(255,255,255,.68);
+
+      border-radius:
+        15px;
+    }
+
+
+    .safety-icon {
+
+      flex:
+        0 0 45px;
+
+      width:
+        45px;
+
+      height:
+        45px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        white;
+
+      border-radius:
+        50%;
+
+      font-size:
+        23px;
+    }
+
+
+    .safety-text {
+
+      font-size:
+        16px;
+
+      font-weight:
+        600;
+    }
+
+
+    .safety-text strong {
+
+      color:
+        #416d84;
+    }
+
+
+    /* =====================================================
+       FUN
+       ===================================================== */
+
+    .fun-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        30px;
+
+      background:
+        var(--orange-soft);
+
+      border:
+        1px solid #f0d1b5;
+
+      border-radius:
+        22px;
+    }
+
+
+    .fun-card h3 {
+
+      margin:
+        0 0 13px;
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        31px;
+
+      font-weight:
+        700;
+
+      color:
+        #a66334;
+    }
+
+
+    .speech {
+
+      max-width:
+        520px;
+
+      margin:
+        20px auto;
+
+      padding:
+        19px 22px;
+
+      text-align:
+        center;
+
+      background:
+        white;
+
+      border-radius:
+        18px;
+
+      font-size:
+        23px;
+
+      font-weight:
+        700;
+
+      color:
+        #66533f;
+
+      box-shadow:
+        0 4px 15px
+        rgba(100,60,30,.07);
+    }
+
+
+    /* =====================================================
+       MITMACHER
+       ===================================================== */
+
+    .mitmacher-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        32px;
+
+      text-align:
+        center;
+
+      background:
+        var(--purple-soft);
+
+      border:
+        1px solid #e0d8ef;
+
+      border-radius:
+        22px;
+    }
+
+
+    .mitmacher-word {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        clamp(38px, 8vw, 55px);
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      color:
+        #75649d;
+    }
+
+
+    .mitmacher-meaning {
+
+      margin-top:
+        7px;
+
+      font-size:
+        14px;
+
+      font-weight:
+        600;
+
+      color:
+        #81779b;
+    }
+
+
+    .school-actions {
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        9px;
+
+      margin-top:
+        23px;
+    }
+
+
+    .school-action {
+
+      padding:
+        8px 14px;
+
+      background:
+        white;
+
+      border-radius:
+        20px;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      color:
+        #685b88;
+    }
+
+
+    /* =====================================================
+       GRADES
+       ===================================================== */
+
+    .grade-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        30px;
+
+      text-align:
+        center;
+
+      background:
+        var(--yellow-soft);
+
+      border:
+        1px solid #eedcae;
+
+      border-radius:
+        22px;
+    }
+
+
+    .grade {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        75px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      color:
+        #b07a20;
+    }
+
+
+    .grade-caption {
+
+      margin-top:
+        8px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        700;
+
+      color:
+        #756849;
+    }
+
+
+    .important-box {
+
+      margin-top:
+        20px;
+
+      padding:
+        18px;
+
+      background:
+        rgba(255,255,255,.68);
+
+      border-radius:
+        15px;
+
+      font-size:
+        18px;
+
+      font-weight:
+        600;
+
+      color:
+        #584c3a;
+    }
+
+
+    /* =====================================================
+       SLEEP
+       ===================================================== */
+
+    .sleep-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        30px;
+
+      text-align:
+        center;
+
+      background:
+        var(--blue-soft);
+
+      border-radius:
+        22px;
+    }
+
+
+    .sleep-number {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        75px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      color:
+        #527e98;
+    }
+
+
+    .sleep-caption {
+
+      margin-top:
+        8px;
+
+      font-size:
+        18px;
+
+      font-weight:
+        700;
+
+      color:
+        #607786;
+    }
+
+
+    /* =====================================================
+       LOVE
+       ===================================================== */
+
+    .love-card {
+
+      margin:
+        32px 0;
+
+      padding:
+        42px 30px;
+
+      text-align:
+        center;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 15%,
+          #fff4c9 0,
+          transparent 25%
+        ),
+
+        linear-gradient(
+          145deg,
+          #fff0f1,
+          #fff8e9
+        );
+
+      border:
+        1px solid #f0d7d8;
+
+      border-radius:
+        24px;
+    }
+
+
+    .love-heart {
+
+      font-size:
+        58px;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .love-card h3 {
+
+      margin:
+        0 0 18px;
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        38px;
+
+      font-weight:
+        700;
+
+      color:
+        #96545c;
+    }
+
+
+    .love-card p {
+
+      max-width:
+        590px;
+
+      margin:
+        10px auto;
+
+      font-size:
+        19px;
+
+      font-weight:
+        600;
+    }
+
+
+    /* =====================================================
+       FINAL
+       ===================================================== */
+
+    .final {
+
+      padding:
+        55px 20px 20px;
+
+      text-align:
+        center;
+    }
+
+
+    .final-small {
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        3px;
+
+      color:
+        #a38d69;
+    }
+
+
+    .final h2 {
+
+      margin:
+        15px 0;
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        clamp(40px, 8vw, 58px);
+
+      line-height:
+        1.05;
+
+      font-weight:
+        700;
+
+      color:
+        #40382e;
+    }
+
+
+    .final-formula {
+
+      font-family:
+        "Baloo 2",
+        sans-serif;
+
+      font-size:
+        clamp(48px, 10vw, 76px);
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      color:
+        #a87520;
+    }
+
+
+    .final p {
+
+      font-size:
+        19px;
+
+      font-weight:
+        600;
+    }
+
+
+    .signature {
+
+      margin-top:
+        45px;
+
+      font-size:
+        19px;
+
+      color:
+        #5c5348;
+    }
+
+
+    .signature strong {
+
+      color:
+        #3d352b;
+    }
+
+
+    .footer {
+
+      margin-top:
+        45px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        700;
+
+      color:
+        #a0988c;
+
+      letter-spacing:
+        1px;
+    }
+
+
+    /* =====================================================
+       EDITABLE TEXT
+       ===================================================== */
+
+    [contenteditable="true"] {
+
+      outline:
+        none;
+
+      border-radius:
+        6px;
+    }
+
+
+    [contenteditable="true"]:focus {
+
+      background:
+        rgba(245,220,150,.20);
+    }
+
+
+    /* =====================================================
+       SAVED MESSAGE
+       ===================================================== */
+
+    .saved {
+
+      position:
+        fixed;
+
+      right:
+        20px;
+
+      bottom:
+        20px;
+
+      z-index:
+        2000;
+
+      padding:
+        13px 18px;
+
+      border-radius:
+        11px;
+
+      background:
+        #365941;
+
+      color:
+        white;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      opacity:
+        0;
+
+      transform:
+        translateY(12px);
+
+      pointer-events:
+        none;
+
+      transition:
+        .25s ease;
+    }
+
+
+    .saved.show {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 700px) {
+
+      body {
+        font-size: 17px;
+      }
+
+      .book {
+
+        width:
+          calc(100% - 16px);
+
+        margin-top:
+          15px;
+
+        border-radius:
+          13px;
+      }
+
+      .cover {
+
+        min-height:
+          600px;
+
+        padding:
+          55px 23px;
+      }
+
+      .cover h1 {
+
+        font-size:
+          clamp(46px, 14vw, 66px);
+      }
+
+      .cover-subtitle {
+
+        font-size:
+          18px;
+      }
+
+      .content {
+
+        padding:
+          42px 24px 60px;
+      }
+
+      .chapter p {
+
+        font-size:
+          17px;
+      }
+
+      .care-items {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .toolbar {
+
+        flex-wrap:
+          wrap;
+      }
+
+      .toolbar button {
+
+        padding:
+          9px 15px;
+      }
+
+      .safety-row {
+
+        padding:
+          13px;
+      }
+    }
+
+
+    /* =====================================================
+       PRINT
+       ===================================================== */
+
+    @media print {
+
+      body {
+
+        background:
+          white;
+      }
+
+      .toolbar,
+      .saved {
+
+        display:
+          none !important;
+      }
+
+      .book {
+
+        width:
+          100%;
+
+        margin:
+          0;
+
+        border-radius:
+          0;
+
+        box-shadow:
+          none;
+      }
+
+      .cover {
+
+        min-height:
+          90vh;
+
+        break-after:
+          page;
+      }
+
+      .chapter {
+
+        break-inside:
+          avoid;
+      }
+
+      .content {
+
+        padding:
+          35px 45px;
+      }
+
+      @page {
+
+        size:
+          A4;
+
+        margin:
+          10mm;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       TOOLBAR
+       ===================================================== -->
+
+  <div class="toolbar">
+
+    <button class="save" onclick="saveLetter()">
+      💾 Save
+    </button>
+
+    <button class="print" onclick="window.print()">
+      🖨️ Print
+    </button>
+
+    <button class="reset" onclick="resetLetter()">
+      ↺ Reset
+    </button>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       BOOK
+       ===================================================== -->
+
+  <main class="book">
+
+
+    <!-- ===================================================
+         COVER
+         =================================================== -->
+
+    <section class="cover">
+
+      <div class="cover-star">
+        🌟
+      </div>
+
+      <div class="cover-small">
+        A little book from Mum & Dad
+      </div>
+
+      <h1 contenteditable="true">
+        A Little Book<br>
+        About Life
+      </h1>
+
+      <div class="cover-subtitle" contenteditable="true">
+
+        For our little Aroosh —
+        about loving yourself,
+        staying safe,
+        learning,
+        growing,
+        and enjoying this beautiful life.
+
+      </div>
+
+      <div class="cover-names">
+
+        With love from<br>
+
+        <strong>
+          Dad — Farhad
+        </strong>
+
+        &
+
+        <strong>
+          Mum — Tabassum
+        </strong>
+
+      </div>
+
+      <div class="cover-date">
+        ❤️ For Aroosh
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTENT
+         =================================================== -->
+
+    <section class="content">
+
+
+      <!-- =================================================
+           HELLO
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label yellow-label">
+          Hello, Aroosh
+        </div>
+
+        <h2 contenteditable="true">
+          This little book is for you.
+        </h2>
+
+        <p contenteditable="true">
+          Dear Aroosh,
+        </p>
+
+        <p contenteditable="true">
+          You are growing up every day.
+        </p>
+
+        <p contenteditable="true">
+          Every day you learn something new —
+          about school, friends, numbers, languages,
+          the world, and yourself.
+        </p>
+
+        <p contenteditable="true">
+          Mum and Dad are learning too.
+        </p>
+
+        <p contenteditable="true">
+          So let's keep learning together.
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           LIFE
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label yellow-label">
+          Lesson 1
+        </div>
+
+        <h2 contenteditable="true">
+          Life is precious.
+        </h2>
+
+        <p contenteditable="true">
+          Here is one little idea I want you to remember
+          for your whole life.
+        </p>
+
+
+        <div class="formula-card">
+
+          <div class="formula">
+            Life &gt; Time
+          </div>
+
+          <div class="formula-text">
+            Life is more important than time.
+          </div>
+
+          <div class="formula-languages">
+
+            <span class="language-pill">
+              English: <strong>greater than</strong>
+            </span>
+
+            <span class="language-pill">
+              German: <strong>größer als</strong>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p contenteditable="true">
+          Time is important.
+          We should learn to be on time,
+          keep promises,
+          and respect other people's time.
+        </p>
+
+        <p contenteditable="true">
+          But sometimes you may be in a hurry.
+          Maybe you are late.
+          Maybe you want to win.
+          Maybe something looks exciting.
+        </p>
+
+        <p contenteditable="true">
+          Stop and remember:
+        </p>
+
+
+        <div class="formula-card">
+
+          <div class="formula">
+            YOU &gt; EVERYTHING
+          </div>
+
+          <div class="formula-text">
+            Your life and your safety come first.
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SELF CARE
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label green-label">
+          Lesson 2
+        </div>
+
+        <h2 contenteditable="true">
+          Take care of yourself.
+        </h2>
+
+        <p contenteditable="true">
+          Before you can take care of the world,
+          you need to take care of yourself.
+        </p>
+
+        <p contenteditable="true">
+          Your body is your home.
+          Your mind is precious.
+          Your life is a gift.
+        </p>
+
+
+        <div class="care-card">
+
+          <div class="care-title">
+            🌱 Taking care of yourself means…
+          </div>
+
+
+          <div class="care-items">
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                😴
+              </span>
+
+              Get enough sleep.
+
+            </div>
+
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                🥣
+              </span>
+
+              Eat properly and give your body energy.
+
+            </div>
+
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                🧠
+              </span>
+
+              Look after your mind and your feelings.
+
+            </div>
+
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                ❤️
+              </span>
+
+              Remember that you are valuable.
+
+            </div>
+
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                🛑
+              </span>
+
+              Stop when something is dangerous.
+
+            </div>
+
+
+            <div class="care-item" contenteditable="true">
+
+              <span class="emoji">
+                🙋
+              </span>
+
+              Ask a trusted grown-up for help.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          Loving yourself is not being selfish.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Loving yourself means knowing that your life
+          is beautiful and worth protecting.
+
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SAFETY
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label blue-label">
+          Lesson 3
+        </div>
+
+        <h2 contenteditable="true">
+          Be curious. Be careful.
+        </h2>
+
+        <p contenteditable="true">
+          You are curious.
+          That's wonderful.
+          Curiosity helps us learn.
+        </p>
+
+        <p contenteditable="true">
+          But sometimes curiosity needs a little friend:
+          <strong>carefulness.</strong>
+        </p>
+
+
+        <div class="safety">
+
+          <h3>
+            🛡️ When something could hurt you…
+          </h3>
+
+
+          <div class="safety-row">
+
+            <div class="safety-icon">
+              🚦
+            </div>
+
+            <div class="safety-text" contenteditable="true">
+
+              <strong>
+                Crossing the road?
+              </strong>
+
+              <br>
+
+              Don't hurry because you are late.
+              Stop, look, listen,
+              and cross safely.
+
+            </div>
+
+          </div>
+
+
+          <div class="safety-row">
+
+            <div class="safety-icon">
+              🏔️
+            </div>
+
+            <div class="safety-text" contenteditable="true">
+
+              <strong>
+                Somewhere high?
+              </strong>
+
+              <br>
+
+              Don't jump down just because
+              it looks fun.
+              Your life is more important
+              than the jump.
+
+            </div>
+
+          </div>
+
+
+          <div class="safety-row">
+
+            <div class="safety-icon">
+              🧪
+            </div>
+
+            <div class="safety-text" contenteditable="true">
+
+              <strong>
+                Chemicals, medicines, or poisons?
+              </strong>
+
+              <br>
+
+              Never touch or taste something
+              dangerous.
+              Ask a grown-up first.
+
+            </div>
+
+          </div>
+
+
+          <p contenteditable="true">
+
+            Nothing is more important
+            than keeping yourself safe.
+
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           LATENESS
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label orange-label">
+          Lesson 4
+        </div>
+
+        <h2 contenteditable="true">
+          The mystery of your lateness 😂
+        </h2>
+
+        <p contenteditable="true">
+          You wake up early.
+        </p>
+
+        <p contenteditable="true">
+          And somehow…
+          you still become late.
+        </p>
+
+        <p contenteditable="true">
+          We have tried many things!
+        </p>
+
+
+        <div class="fun-card">
+
+          <h3>
+            🥣 The Oats Mystery
+          </h3>
+
+          <p contenteditable="true">
+            Dad discovered that sometimes
+            you take a very, very long time
+            eating your oats.
+          </p>
+
+          <div class="speech">
+            “Maybe Dad should use a spoon.” 😂
+          </div>
+
+          <p contenteditable="true">
+            And somehow our timing became
+            a little better.
+          </p>
+
+        </div>
+
+
+        <p contenteditable="true">
+          One day you will probably laugh
+          about this.
+        </p>
+
+        <p contenteditable="true">
+          When Mum and Dad are strict about
+          being on time, it is because we are
+          trying to teach you something useful.
+        </p>
+
+        <p contenteditable="true">
+          Respect time.
+          But never put being on time
+          above being safe.
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SCHOOL
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label purple-label">
+          Lesson 5
+        </div>
+
+        <h2 contenteditable="true">
+          Be a Mitmacher!
+        </h2>
+
+        <p contenteditable="true">
+          Your teacher told us that sometimes
+          you seem to be somewhere in another world.
+        </p>
+
+        <p contenteditable="true">
+          Dad actually likes that you have
+          a big imagination.
+          Your own little world can be wonderful.
+        </p>
+
+        <p contenteditable="true">
+          But when you are in
+          <strong>school / Schule</strong>,
+          I want you to be an active:
+        </p>
+
+
+        <div class="mitmacher-card">
+
+          <div class="mitmacher-word">
+            Mitmacher
+          </div>
+
+          <div class="mitmacher-meaning">
+            Someone who takes part
+            and gets involved.
+          </div>
+
+
+          <div class="school-actions">
+
+            <span class="school-action">
+              👀 Pay attention
+            </span>
+
+            <span class="school-action">
+              🙋 Ask questions
+            </span>
+
+            <span class="school-action">
+              ✋ Take part
+            </span>
+
+            <span class="school-action">
+              🧠 Think
+            </span>
+
+            <span class="school-action">
+              💪 Try
+            </span>
+
+            <span class="school-action">
+              🔄 Try again
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          Don't just watch the world happen.
+
+        </p>
+
+        <p contenteditable="true">
+
+          <strong>Be part of it.</strong>
+
+        </p>
+
+        <p contenteditable="true">
+
+          And keep learning English too.
+          German and English together
+          will open many doors for you.
+
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           GRADES
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label yellow-label">
+          Lesson 6
+        </div>
+
+        <h2 contenteditable="true">
+          Keep trying.
+        </h2>
+
+        <p contenteditable="true">
+
+          You recently got a
+          <strong>1 in Maths</strong>
+          and a <strong>1 in German</strong>.
+
+        </p>
+
+        <p contenteditable="true">
+
+          We are very proud of the work
+          you have done.
+
+        </p>
+
+        <p contenteditable="true">
+
+          And now your <strong>Sachtest</strong>
+          is coming.
+          You told us you are going to get a 1.
+
+          Let's see! 😊
+
+        </p>
+
+
+        <div class="grade-card">
+
+          <div class="grade">
+            1
+          </div>
+
+          <div class="grade-caption">
+            Nice work, Aroosh!
+          </div>
+
+          <div class="important-box" contenteditable="true">
+
+            A good result is something
+            to be proud of.
+
+            <br><br>
+
+            But don't let a good result
+            make you stop trying.
+
+          </div>
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          Sometimes things will be easy.
+          Sometimes they will be difficult.
+
+        </p>
+
+        <p contenteditable="true">
+
+          When something is easy,
+          stay curious.
+
+          When something is difficult,
+          don't give up.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Ask questions.
+          Listen carefully.
+          Practice.
+          Make mistakes.
+          Try again.
+
+        </p>
+
+        <p contenteditable="true">
+
+          We don't need you to be the best.
+
+          We want you to become
+          better than you were yesterday.
+
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SLEEP
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label blue-label">
+          Lesson 7
+        </div>
+
+        <h2 contenteditable="true">
+          Your brain needs sleep.
+        </h2>
+
+        <p contenteditable="true">
+
+          Your body and brain work hard every day.
+          They need time to recharge.
+
+        </p>
+
+
+        <div class="sleep-card">
+
+          <div class="sleep-number">
+            ~10
+          </div>
+
+          <div class="sleep-caption">
+
+            hours of sleep to help you
+            have energy for the day
+
+          </div>
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          But then, just when we think
+          you are finally going to sleep…
+
+        </p>
+
+
+        <div class="speech">
+
+          “Ekta last kotha…” 😂
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          And somehow the “last kotha”
+          becomes five more conversations.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Dad loves hearing your stories.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Just maybe…
+          start your last kotha
+          a little earlier. 😄
+
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           LOVE
+           ================================================= -->
+
+      <section class="chapter">
+
+        <div class="chapter-label pink-label">
+          The most important lesson
+        </div>
+
+        <h2 contenteditable="true">
+          Love yourself.
+        </h2>
+
+
+        <div class="love-card">
+
+          <div class="love-heart">
+            ❤️
+          </div>
+
+          <h3>
+            You are important.
+          </h3>
+
+          <p contenteditable="true">
+            Your life is beautiful.
+          </p>
+
+          <p contenteditable="true">
+            Your body is precious.
+          </p>
+
+          <p contenteditable="true">
+            Your mind is precious.
+          </p>
+
+          <p contenteditable="true">
+            Your future is precious.
+          </p>
+
+          <p contenteditable="true">
+            You are precious to us.
+          </p>
+
+        </div>
+
+
+        <p contenteditable="true">
+
+          Take care of yourself.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Be kind to yourself when you make mistakes.
+          Ask for help when you need it.
+          Learn from things that don't go well.
+
+        </p>
+
+        <p contenteditable="true">
+
+          And never think that you have
+          to be perfect to be loved.
+
+        </p>
+
+        <p contenteditable="true">
+
+          You don't.
+
+        </p>
+
+        <p contenteditable="true">
+
+          We love you simply because
+          you are our Aroosh.
+
+        </p>
+
+      </section>
+
+
+
+      <!-- =================================================
+           FINAL
+           ================================================= -->
+
+      <section class="final">
+
+        <div class="final-small">
+          Remember this
+        </div>
+
+        <h2 contenteditable="true">
+          Life is beautiful.
+        </h2>
+
+        <div class="final-formula">
+          LIFE &gt; TIME
+        </div>
+
+        <p contenteditable="true">
+
+          Use your time wisely.
+
+        </p>
+
+        <p contenteditable="true">
+
+          Learn.
+          Play.
+          Laugh.
+          Be curious.
+          Be kind.
+
+        </p>
+
+        <p contenteditable="true">
+
+          And most importantly:
+
+          <strong>
+            take care of yourself.
+          </strong>
+
+        </p>
+
+        <p contenteditable="true">
+
+          Your life is more valuable
+          than a clock,
+          a grade,
+          a game,
+          a jump,
+          being first,
+          being fast,
+          or anything else.
+
+        </p>
+
+        <p contenteditable="true">
+
+          <strong>
+            Your life comes first.
+          </strong>
+
+        </p>
+
+
+        <div class="love-card">
+
+          <div class="love-heart">
+            ❤️
+          </div>
+
+          <p contenteditable="true">
+
+            Whenever you forget
+            how important you are,
+            remember that Mum and Dad
+            are always here to remind you.
+
+          </p>
+
+        </div>
+
+
+        <div class="signature">
+
+          With all our love,
+
+          <br><br>
+
+          <strong>
+            Dad — Farhad
+          </strong>
+
+          <br>
+
+          <strong>
+            Mum — Tabassum
+          </strong>
+
+          <br><br>
+
+          ❤️
+
+        </div>
+
+
+        <div class="footer">
+
+          Made with love for Aroosh
+
+        </div>
+
+      </section>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       SAVED MESSAGE
+       ===================================================== -->
+
+  <div class="saved" id="savedMessage">
+
+    ✓ Saved on this device
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    const STORAGE_KEY =
+      "aroosh-life-book-final";
+
+
+    /* SAVE */
+
+    function saveLetter() {
+
+      const book =
+        document.querySelector(".book").innerHTML;
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        book
+      );
+
+      showSavedMessage();
+
+    }
+
+
+    /* LOAD */
+
+    function loadLetter() {
+
+      const saved =
+        localStorage.getItem(
+          STORAGE_KEY
+        );
+
+      if (saved) {
+
+        document.querySelector(
+          ".book"
+        ).innerHTML = saved;
+
+      }
+
+    }
+
+
+    /* RESET */
+
+    function resetLetter() {
+
+      const answer =
+        confirm(
+          "Reset the book to the original version? Your edits will be removed."
+        );
+
+      if (answer) {
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+        location.reload();
+
+      }
+
+    }
+
+
+    /* SAVE MESSAGE */
+
+    function showSavedMessage() {
+
+      const message =
+        document.getElementById(
+          "savedMessage"
+        );
+
+      message.classList.add(
+        "show"
+      );
+
+      setTimeout(
+        () => {
+
+          message.classList.remove(
+            "show"
+          );
+
+        },
+        2200
+      );
+
+    }
+
+
+    /* AUTO SAVE */
+
+    window.addEventListener(
+      "beforeunload",
+      () => {
+
+        const book =
+          document.querySelector(
+            ".book"
+          ).innerHTML;
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          book
+        );
+
+      }
+    );
+
+
+    /* LOAD SAVED VERSION */
+
+    loadLetter();
+
+  </script>
+
+
+</body>
+</html>
